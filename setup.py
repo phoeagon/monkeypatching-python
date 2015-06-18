@@ -1,4 +1,9 @@
 from setuptools import setup
+import sys
+
+extra = {}
+if sys.version_info >= (3,):
+    extra['use_2to3'] = True
 
 setup(
     name="monkeypatch",
@@ -8,13 +13,14 @@ setup(
     author='phoeagon',
     author_email='admin@phoeagon.info',
     url='https://github.com/phoeagon/monkeypatch-python',
-    package_dir = {'': 'src'},
+    packages = ['monkeypatch'],
+    package_dir = {'monkeypatch': 'src'},
+    test_suite = 'monkeypatch.monkeypatch_test',
     package_data={
         'monkeypatch': ['README', 'LICENSE']
     },
     install_requires=[],
     classifiers=[
-        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
