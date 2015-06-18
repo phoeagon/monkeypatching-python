@@ -7,13 +7,15 @@ from collections import defaultdict
 try:
     import exceptions
 except:
-    exceptions = type('Exception',(), {'AttributeError': AttributeError})
+    exceptions = type('Exception', (), {'AttributeError': AttributeError})
 
 __resolve__ = defaultdict(dict)
 __pending_resolve__ = {}
 
+
 def _bypass(attr):
-    return attr in ['cls', 'path', 'obj'] or attr.startswith('__')     
+    return attr in ['cls', 'path', 'obj'] or attr.startswith('__')
+
 
 class _ProxyClass(object):
 
@@ -42,13 +44,14 @@ class _ProxyClass(object):
         except exceptions.AttributeError:
             return _ProxyClass(self.__mp_cls, self.__mp_obj, self.__mp_path + '.' + attr)
 
+
 def monkeypatch(cls):
     """Class decorator.
     """
     global __resolve__, __pending_resolve__
     __resolve__[cls] = __pending_resolve__
     __pending_resolve__ = {}
-    
+
     def getattribute(self, attr):
         try:
             return object.__getattribute__(self, attr)
@@ -59,7 +62,8 @@ def monkeypatch(cls):
         '__getattribute__': getattribute,
         '__original_getattribute__': cls.__getattribute__,
     })
-    
+
+
 def route(path):
     """Return a decorator.
     """
@@ -70,4 +74,3 @@ def route(path):
         __pending_resolve__[path] = func
         return inner
     return decorator
-    

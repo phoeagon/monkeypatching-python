@@ -2,12 +2,13 @@
 
 import monkeypatch as mp
 
+
 @mp.monkeypatch
 class ExampleClass(object):
 
     def __init__(self, val=0):
         self.val = val
-    
+
     @mp.route(r'square_of_([0-9]+)')
     def squared(self, num):
         num = int(num)
