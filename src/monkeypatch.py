@@ -32,11 +32,7 @@ class _ProxyClass(object):
                     args = (self.__mp_obj,) + m.groups() + args
                     return func(*args, **kwargs)
         # Fail to resolve
-        # Method invocation is never a statement, so eval is save
-        parsed_path = self.__mp_path.split('.')
-        attr = object.__getattribute__(self.__mp_obj, parsed_path[1])
-        retval = eval('attr' + '.'.join(parsed_path[2:]) + '(*args, **kwargs)')
-        return retval
+        raise exceptions.AttributeError(self.__mp_cls + 'is not callable')
 
     def __getattribute__(self, attr):
         try:

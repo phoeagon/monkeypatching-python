@@ -7,13 +7,13 @@ if sys.version_info >= (3,):
 
 setup(
     name="mr-monkeypatch",
-    version="0.0.2",
+    version="0.0.3",
     license='http://www.apache.org/licenses/LICENSE-2.0',
     description="A monkey patching library for python",
     author='phoeagon',
     author_email='admin@phoeagon.info',
     url='https://github.com/phoeagon/monkeypatch-python',
-    download_url='https://github.com/phoeagon/monkeypatch-python/tarball/0.0.2',
+    download_url='https://github.com/phoeagon/monkeypatch-python/tarball/0.0.3',
     packages = ['monkeypatch'],
     package_dir = {'monkeypatch': 'src'},
     test_suite = 'monkeypatch.monkeypatch_test',
