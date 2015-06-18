@@ -13,6 +13,7 @@ setup(
     author='phoeagon',
     author_email='admin@phoeagon.info',
     url='https://github.com/phoeagon/monkeypatch-python',
+    download_url='https://github.com/phoeagon/monkeypatch-python/tarball/0.0.1',
     packages = ['monkeypatch'],
     package_dir = {'monkeypatch': 'src'},
     test_suite = 'monkeypatch.monkeypatch_test',
