@@ -24,3 +24,8 @@ Also, if the route path has a prefix the same as any attribute that exists
 in the original class, the behaviour is undefined and you should not rely
 on it.
 
+## Getting Started
+
+      pip install mr-monkeypatch
+
+(MR for method-resolution)

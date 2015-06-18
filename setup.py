@@ -6,7 +6,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 setup(
-    name="monkeypatch",
+    name="mr-monkeypatch",
     version="0.0.2",
     license='http://www.apache.org/licenses/LICENSE-2.0',
     description="A monkey patching library for python",
