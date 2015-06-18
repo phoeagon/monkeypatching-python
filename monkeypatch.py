@@ -53,7 +53,7 @@ def monkeypatch(cls):
         try:
             return object.__getattribute__(self, attr)
         except exceptions.AttributeError:
-            return _ProxyClass(cls, self, '.' + attr)
+            return _ProxyClass(cls, self, attr)
 
     return type(cls.__name__, (cls,), {
         '__getattribute__': getattribute,
@@ -69,7 +69,5 @@ def route(path):
         global __pending_resolve__
         __pending_resolve__[path] = func
         return inner
-    if path[0] != '.':
-        raise exceptions.ValueError('Path value must starts with a "."')
     return decorator
     

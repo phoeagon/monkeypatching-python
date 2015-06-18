@@ -8,7 +8,7 @@ class Example(object):
   def __init__(self, val = 0):
     self.val = val
 
-  @mp.route('.raise_([0-9]+).to_([0-9]+).power')
+  @mp.route('raise_([0-9]+).to_([0-9]+).power')
   def power(self, a, b):
     a = int(a)
     b = int(b)
@@ -25,7 +25,7 @@ class NestedExample(Example):
     if depth:
       self.ptr = NestedExample(depth - 1, val * 2)
 
-  @mp.route('.invert_([0-9]+)')
+  @mp.route('invert_([0-9]+)')
   def inv(self, num):
     return self.val + 1.0/int(num)
 

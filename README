@@ -1,0 +1,17 @@
+Monkey patching for Python
+====================================
+
+This library provides Ruby style method name resolution for Python
+by monkey patching.
+
+
+        import monkeypatch as mp
+
+        @mp.monkeypatch
+        class ExampleClass(object):
+            @mp.route('raise_([0-9]+).to_([0-9]+).power')
+            def power(self, a,b):
+                return int(a) ** int(b)
+
+        a = ExampleClass()
+        print a.raise_2.to_15.power()
