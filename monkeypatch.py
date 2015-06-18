@@ -2,9 +2,12 @@
 # Filename: monkeypatch_test.py
 
 import re
-import exceptions
 import logging
 from collections import defaultdict
+try:
+    import exceptions
+except:
+    exceptions = type('Exception',(), {'AttributeError': AttributeError})
 
 __resolve__ = defaultdict(dict)
 __pending_resolve__ = {}
@@ -21,7 +24,7 @@ class _ProxyClass(object):
 
     def __call__(self, *args, **kwargs):
         for cls in self.__mp_cls.mro():
-            for path, func in __resolve__[cls].iteritems():
+            for path, func in __resolve__[cls].items():
                 m = re.match(path, self.__mp_path)
                 if m:
                     args = (self.__mp_obj,) + m.groups() + args
