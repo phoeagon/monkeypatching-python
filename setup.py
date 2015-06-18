@@ -8,6 +8,7 @@ setup(
     author='phoeagon',
     author_email='admin@phoeagon.info',
     url='https://github.com/phoeagon/monkeypatch-python',
+    package_dir = {'': 'src'},
     package_data={
         'monkeypatch': ['README', 'LICENSE']
     },
